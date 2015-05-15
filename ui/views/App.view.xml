@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View controllerName="views.App" xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	class="viewPadding">
+	<u:Shell id="myShell" icon="./images/sap_18.png">
+		<u:user>
+			<u:ShellHeadUserItem image="sap-icon://person-placeholder"
+				username="{config>/UserName}" />
+		</u:user>
+		<u:content>
+			<l:VerticalLayout> 
+				<u:FileUploader id="fileUploader" name="myFileUpload"
+					width="400px" typeMissmatch="handleTypeMissmatch"
+					style="Emphasized" fileType="{config>/fileType}" sendXHR="true" useMultipart="false"
+					placeholder="Choose a file for Upload..." uploadComplete="handleUploadComplete"
+					value="{/fileUpload}"/>
+
+				<Text text="Upload To..." textAlign="Center" />
+				<RadioButtonGroup columns="1" width="500px"
+					class="sapUiMediumMarginBottom" select="toggleFields">
+					<buttons>
+						<RadioButton id="UploadTable_Field" text="Upload to Table"
+							key="uploadTable" />
+						<RadioButton id="UploadRepo_Field" text="Upload to Repostiory"
+							key="uploadRepo" />
+					</buttons>
+				</RadioButtonGroup>
+				<Label id="SchemaName_Label" text="Schema Name" visible="{config>/TableVisible}" />
+				<Input id="Schema" type="Text" class="sapUiSmallMarginBottom"
+					value="{/Schema}" visible="{config>/TableVisible}" showSuggestion="true"
+					suggest="loadSchemaFilter" />
+				<Label id="TableName_Label" text="Table Name" visible="{config>/TableVisible}" />
+				<Input id="Table" type="Text" class="sapUiSmallMarginBottom" showSuggestion="true"
+					value="{/Table}" visible="{config>/TableVisible}"
+					suggest="loadTableFilter" />
+				<Label id="RepoPath_Label" text="Repository Path" visible="{config>/RepoVisible}" />
+				<Input id="Package" type="Text" class="sapUiSmallMarginBottom"
+					value="{/Repo}" visible="{config>/RepoVisible}"
+					showSuggestion="true" suggest="loadPackageFilter" />
+				<Button text="Upload File" press="handleUploadPress" />
+			</l:VerticalLayout>
+		</u:content>
+	</u:Shell>
+</mvc:View>		

@@ -1,0 +1,3 @@
+role sap.hana.xsopen.fileUploader::Basic {
+	application privilege: sap.hana.xsopen.fileUploader::Basic;  
+}

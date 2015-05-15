@@ -1,0 +1,11 @@
+# TRANSLATE
+console=Purchase Order Console
+p1=Catalog Table Lookup 
+schema=Schema
+table=Table
+display=Display
+massTbl=Mass Download HDBTable
+massDD=Mass Download HDBDD
+p2=HDBTABLE Syntax
+p3=HDBDD Syntax
+e1=Service Call Error
